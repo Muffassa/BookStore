@@ -6,5 +6,6 @@ Feature: Manage Products
     Scenario: Products List
       Given I have books titled Ruby, JavaScript
       When  I go to the list of products
-      Then  I should see "Ruby"
+      Then I should see "List of Products"
+      And  I should see "Ruby"
       And   I should see "JavaScript"

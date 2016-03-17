@@ -7,3 +7,7 @@ end
 When(/^I go to the list of products$/) do
    visit products_path# Write code here that turns the phrase above into concrete actions
 end
+
+Then(/^I should see "(.+)"$/) do |title|
+    expect(page).to  have_content(title)# Write code here that turns the phrase above into concrete actions
+end
