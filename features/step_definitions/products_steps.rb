@@ -24,14 +24,14 @@ When(/^I follow "([^"]*)"$/) do |link|
   click_link(link) # Write code here that turns the phrase above into concrete actions
 end
 
-When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, data|
+   fill_in field , :with => data# Write code here that turns the phrase above into concrete actions
 end
 
-When(/^I should click submit button$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I should click "([^"]*)" button$/) do |button|
+    click_button(button)# Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^I should have (\d+) article$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should have (\d+) product$/) do |number|
+  expect(Product.all.count) == number# Write code here that turns the phrase above into concrete actions
 end

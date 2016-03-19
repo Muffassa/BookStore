@@ -1,5 +1,9 @@
 <h1>List of Products</h1>
+<%= flash[:notice] %>
 <% for product in @products %>
-  <%= product.title %>
+  <div class="item"><%= product.title %></div>
+  <div class="item"><%= product.description %></div>
+  <div class="item"><%= product.price %></div>
+  <div class="item"><%= product.img_url %></div>
 <%end %>
 <%= link_to "New Product", new_product_path %>

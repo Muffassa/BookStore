@@ -14,14 +14,15 @@ Feature: Manage Products
       Given I have no books
       And I am on the list of products
       When I follow "New Product"
-      And I fill in "Title" with "Ruby"
-      And I fill in "Description" with "Best ruby on rails book"
-      And I fill in "Price" with "12"
-      And I fill in "Image_Url" with "ruby.png"
-      And I should click submit button
-      Then I should see "New product created"
-      And I should see "Ruby"
+      And I fill in "product_title" with "Java"
+      And I fill in "product_description" with "Best ruby on rails book"
+      And I fill in "product_price" with "12"
+      And I fill in "product_img_url" with "ruby.png"
+      And I should click "Create" button
+      Then I should see "Новая книга добавлена"
+      And I should have 1 product
+      When  I go to the list of products
+      And I should see "Java"
       And I should see "Best ruby on rails book"
       And I should see "12"
       And I should see "ruby.png"
-      And I should have 1 article
