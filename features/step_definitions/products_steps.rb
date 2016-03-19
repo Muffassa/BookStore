@@ -35,3 +35,20 @@ end
 Then(/^I should have (\d+) product$/) do |number|
   expect(Product.all.count) == number# Write code here that turns the phrase above into concrete actions
 end
+
+Given(/^I have$/) do |table|
+  # table is a Cucumber::Core::Ast::DataTable
+  table.hashes.each do |row|
+    Product.create!(:title => row[:title],
+                    :description => row[:description],
+                    :price => row[:price],
+                    :img_url => row[:img_url])
+  end# Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I fill$/) do |table|
+  # table is a Cucumber::Core::Ast::DataTable
+  table.hashes.each do |row|
+    fill_in row[:field], :with => data
+  end # Write code here that turns the phrase above into concrete actions
+end

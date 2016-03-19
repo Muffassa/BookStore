@@ -26,3 +26,22 @@ Feature: Manage Products
       And I should see "Best ruby on rails book"
       And I should see "12"
       And I should see "ruby.png"
+
+    Scenario: Edit product
+      Given I have
+                  | title  | description    | price   | img_url    |
+                  | "Ruby" | "Ruby 1.9&2.0" | "12"    | "ruby.png" |
+      When I go to the list of products
+      When I follow "Edit"
+      Then I fill
+                  | field            | data                    |
+                  | "product_title"       | "Java"                  |
+                  | "product_description" | "Java popular language" |
+                  | "product_price"       | "23"                    |
+                  | "prduct_img_url"      | "java.png"              |
+      And I should click "Update" button
+      Then I should see "Данные обновленны"
+      When I go to the list of products
+      Then I should see
+                        | title | description             | price | img_url     |
+                        | "Java"| "Java popular language" | "23"  | "java.png"  |
