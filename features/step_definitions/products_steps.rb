@@ -29,7 +29,7 @@ When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, data|
 end
 
 When(/^I should click "([^"]*)" button$/) do |button|
-    click_button(button)# Write code here that turns the phrase above into concrete actions
+    click_on button# Write code here that turns the phrase above into concrete actions
 end
 
 Then(/^I should have (\d+) product$/) do |number|
@@ -39,7 +39,8 @@ end
 Given(/^I have$/) do |table|
   # table is a Cucumber::Core::Ast::DataTable
   table.hashes.each do |row|
-    Product.create!(:title => row[:title],
+    Product.create!(:id => row[:id],
+                    :title => row[:title],
                     :description => row[:description],
                     :price => row[:price],
                     :img_url => row[:img_url])
@@ -49,6 +50,10 @@ end
 Then(/^I fill$/) do |table|
   # table is a Cucumber::Core::Ast::DataTable
   table.hashes.each do |row|
-    fill_in row[:field], :with => data
+    fill_in row[:field], :with => row[:data]
   end # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I should see img "([^"]*)"$/) do |img|
+  expect(page).to have_css("img[src*='#{img}']") # Write code here that turns the phrase above into concrete actions
 end

@@ -17,6 +17,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    product = Product.find(params[:id])
+    product.update!(product_params)
+    flash[:notice] = "Данные обновленны"
+    redirect_to products_path
+  end
+
   def product_params
       params.require(:product).permit(:title, :description, :price, :img_url)
   end
