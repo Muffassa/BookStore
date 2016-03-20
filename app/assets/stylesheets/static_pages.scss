@@ -1,3 +1,45 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  .top-bar{
+        a{
+          img{
+            width: 25px;
+          }
+        }
+    }
+  .block_title{
+    text-align: center;
+  }
+  .products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 25px 0;
+    }
+    .product{
+      width: 20%;
+      img{
+        height: 360px;
+      }
+      .product_actions{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        .edit{
+          margin-right: 10px;
+        }
+        img{
+          width: 25px;
+          height: auto;
+        }
+      }
+    }
+    footer{
+      border-top: 1px solid #f2f2f2;
+      background-color: #e6e6e6;
+    }
+  }

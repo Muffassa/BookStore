@@ -70,6 +70,6 @@ Then(/^If i click "([^"]*)"$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^number of products should be (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^number of products should be (\d+)$/) do |number|
+  expect(Product.all.count) == number# Write code here that turns the phrase above into concrete actions
 end

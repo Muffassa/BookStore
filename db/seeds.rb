@@ -5,3 +5,33 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+products = [{title: "JavaScript",
+              description: " прототипно-ориентированный
+              сценарный язык программирования.
+              Является реализацией языка ECMAScript (стандарт ECMA-262[6]).",
+              price: 32,
+              img_url: "js.png"},
+            {title: "Ruby",
+              description: "Updated for Ruby 2.2, this handy reference offers
+              brief yet clear explanations of Ruby’s core elements—from operators
+              to blocks to documentation creation—and highlights the key features
+              you may work with every day. Need to know the correct syntax for a conditional?
+              Forgot the name of that String method? This book is organized.",
+              price: 12.99,
+              img_url: "ruby.jpg"},
+            {title: "PHP Web Services",
+              description: "Learn how to build web services with PHP and exchange
+              data across applications. In this video course, web development
+              consultant Lorna Jane Mitchell provides real-world examples and
+              advice based on her extensive experience to guide you through the
+              key API concepts.
+              In an increasingly interconnected world, you need to be able to",
+              price:99.99,
+              img_url: "php.jpg"}]
+
+products.each do |product|
+  Product.create(title: product[:title],
+                  description: product[:description],
+                  price: product[:price],
+                  img_url: product[:img_url])
+end
