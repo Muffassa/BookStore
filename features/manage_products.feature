@@ -4,11 +4,12 @@ Feature: Manage Products
     I want to create and manage products
 
     Scenario: Products List
-      Given I have books titled Ruby, JavaScript
+    Given I have
+                |id| title  | description    | price   | img_url    |
+                | 1| "Ruby" | "Ruby 1.9&2.0" | "12"    | "ruby.png" |
       When  I go to the list of products
       Then I should see "List of Products"
       And  I should see "Ruby"
-      And   I should see "JavaScript"
 
     Scenario: Add new item
       Given I have no books
@@ -54,3 +55,17 @@ Feature: Manage Products
         When I go to the list of products
         When I follow "Delete"
         Then number of products should be 0
+
+      Scenario: Validation title of product
+        Given I have no books
+        Given I have 0 product
+        When I go to the list of products
+        And follow "New Product"
+        Then I fill
+                    | field               | data                  |
+                    | product[title]      |                       |
+                    | product_description | Java popular language |
+                    | product_price       | 23                    |
+                    | product[img_url]    | java.png              |
+        And I should click "Create" button
+        Then I should see message "Введенные данные не корректны"

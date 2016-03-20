@@ -8,11 +8,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create!(product_params)
+    @product = Product.new(product_params)
     respond_to do |format|
       if @product.save
       format.html { redirect_to products_path, notice: "Новая книга добавлена" }
       format.json { render json: @resource }
+    else
+      format.html { redirect_to new_product_path, notice: "Введенные данные не корректны" }
+      format.json { render json: @guest.errors, status: :unprocessable_entity }
     end
     end
   end

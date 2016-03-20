@@ -66,10 +66,18 @@ Then(/^I should have message "([^"]*)"$/) do |message|
   expect(page).to have_content message# Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^If i click "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 Then(/^number of products should be (\d+)$/) do |number|
   expect(Product.all.count) == number# Write code here that turns the phrase above into concrete actions
+end
+
+When(/^follow "([^"]*)"$/) do |link|
+  click_on link # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should see message "([^"]*)"$/) do |message|
+   expect(page).to have_content message# Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^Number of products should equal (\d+)$/) do |numbers|
+  expect(Product.all.count) == numbers # Write code here that turns the phrase above into concrete actions
 end
