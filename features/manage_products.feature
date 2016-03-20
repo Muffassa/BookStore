@@ -45,3 +45,12 @@ Feature: Manage Products
       Then I should see
                         | title | description           | price | img_url     |
                         | Java  | Java popular language | 23    | java.png    |
+
+      Scenario: Delete product
+        Given I have
+                    |id| title| description  | price | img_url  |
+                    | 1| Ruby | Ruby 1.9&2.0 | 12    | ruby.png |
+        And I have 1 product
+        When I go to the list of products
+        When I follow "Delete"
+        Then number of products should be 0

@@ -57,3 +57,19 @@ end
 When(/^I should see img "([^"]*)"$/) do |img|
   expect(page).to have_css("img[src*='#{img}']") # Write code here that turns the phrase above into concrete actions
 end
+
+Given(/^I have (\d+) product$/) do |number|
+   expect(Product.all.count) == number# Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should have message "([^"]*)"$/) do |message|
+  expect(page).to have_content message# Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^If i click "([^"]*)"$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^number of products should be (\d+)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
