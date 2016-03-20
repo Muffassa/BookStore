@@ -4,22 +4,24 @@
 <div class="products">
   <% for product in @products %>
   <div class="product">
-    <%=image_tag product.img_url %>
-    <div class="product_actions">
-      <div class="edit"><%=link_to (image_tag "draw.svg"), edit_product_path(product.id) %></div>
-      <div class="delete"><%=link_to (image_tag "delete.svg"),product, method: :delete,
+    <div class="product_item">
+      <%=image_tag product.img_url %>
+      <div class="product_actions">
+        <div class="edit"><%=link_to (image_tag "draw.svg"), edit_product_path(product.id) %></div>
+        <div class="delete"><%=link_to (image_tag "delete.svg"),product, method: :delete,
                                 data: { confirm: "Вы уверены что хотите удалить эту книгу?"} %></div>
-    </div>
-    <div class="product_title">
-      <h4>
-        <%= product.title %>
-      </h4>
-    </div>
-    <div class="product_description">
-      <%= truncate(product.description) %>
-    </div>
-    <div class="product_price">
-      <%= product.price %>$
+      </div>
+      <div class="product_title">
+        <h4>
+          <%= product.title %>
+        </h4>
+      </div>
+      <div class="product_description">
+        <%= truncate(product.description) %>
+      </div>
+      <div class="product_price">
+        <%= product.price %>$
+      </div>
     </div>
   </div>
   <% end %>
