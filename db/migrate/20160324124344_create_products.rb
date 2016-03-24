@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration
       t.text :description
       t.decimal :price
       t.string :img_url
-
+      t.belongs_to :category
       t.timestamps null: false
     end
   end

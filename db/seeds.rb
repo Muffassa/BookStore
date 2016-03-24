@@ -29,6 +29,13 @@ products = [{title: "JavaScript",
               price:99.99,
               img_url: "php.jpg"}]
 
+categories = [{name: "Backend"},
+              {name: "Frontend"}]
+
+categories.each do |category|
+  Category.new(name: category[:name])
+end
+
 products.each do |product|
   Product.create(title: product[:title],
                   description: product[:description],
