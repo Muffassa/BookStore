@@ -14,8 +14,8 @@ Feature: Manage Products
       When visit new discount products page
       Then select item with title "Ruby"
       And fill in discount_products with data "10"
-      And click button "create"
+      And click button "Create Discount item"
       Then i will visit discount items page
       And should see discount item with
                                           | title   |  discount   |
-                                          | "Ruby"  |   "10"      |
+                                          | "Ruby"  |   10        |

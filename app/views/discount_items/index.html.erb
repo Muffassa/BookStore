@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Product</th>
       <th>Discount</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,7 @@
   <tbody>
     <% @discount_items.each do |discount_item| %>
       <tr>
+        <td><%= discount_item.product.title %></td>
         <td><%= discount_item.discount %></td>
         <td><%= link_to 'Show', discount_item %></td>
         <td><%= link_to 'Edit', edit_discount_item_path(discount_item) %></td>

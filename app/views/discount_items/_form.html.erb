@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :product_id %>
+    <%= f.select :product_id, Product.all.collect { |c| [ c.title, c.id ] } %>
+  </div>
+  <div class="field">
     <%= f.label :discount %><br>
     <%= f.number_field :discount %>
   </div>

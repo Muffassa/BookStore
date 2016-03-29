@@ -3,11 +3,11 @@ When(/^visit new discount products page$/) do
 end
 
 Then(/^select item with title "([^"]*)"$/) do |product|
-  select product, form: discount_item[product_id] # Write code here that turns the phrase above into concrete actions
+  select product, from: "discount_item[product_id]" # Write code here that turns the phrase above into concrete actions
 end
 
 Then(/^fill in discount_products with data "([^"]*)"$/) do |data|
-  fill_in discount_item[discount], with: data # Write code here that turns the phrase above into concrete actions
+  fill_in "discount_item[discount]", with: data # Write code here that turns the phrase above into concrete actions
 end
 
 Then(/^click button "([^"]*)"$/) do |button|
