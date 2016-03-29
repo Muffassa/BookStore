@@ -17,3 +17,8 @@ Feature: Manage Products
                               |title       |description           |price|img_url    |
                               |"Ruby"      |"Ruby 1.9&2.0 book"   |12   |"ruby.png" |
                               |"JavaScript"|"JavaScript best book"|24   |"js.png"   |
+
+    Scenario: I should have "Registration" link
+      Given I visit "/" page
+      When I click "Регистрация"
+      Then I should see "New User"

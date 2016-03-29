@@ -21,3 +21,11 @@ When(/^I should see$/) do |table|
     expect(page).to have_css("img[src*='#{row[:img_url]}']")
   end # Write code here that turns the phrase above into concrete actions
 end
+
+Given(/^I visit "([^"]*)" page$/) do |page|
+  visit  page# Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I click "([^"]*)"$/) do |link|
+  click_on link # Write code here that turns the phrase above into concrete actions
+end
