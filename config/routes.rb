@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :discount_items
   resources :users
   root 'static_pages#index'
   get '/signup' => 'users#new'
