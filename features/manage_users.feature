@@ -7,7 +7,7 @@ Feature: Manage Products
     Scenario: Create new user
       Given Number of users is 0
       When I am going to "signup" page
-      And I fill in
+      And I fill in users
                     | input_block | data  |
                     | user_email  | User  |
                     | user_password    | test  |

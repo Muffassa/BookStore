@@ -6,7 +6,7 @@ When(/^I am going to "([^"]*)" page$/) do |link|
   visit link # Write code here that turns the phrase above into concrete actions
 end
 
-When(/^I fill in$/) do |table|
+When(/^I fill in users$/) do |table|
   # table is a Cucumber::Core::Ast::DataTable
   table.hashes.each do |row|
     fill_in row[:input_block], with: row[:data]
