@@ -39,6 +39,7 @@ group :development, :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'rspec-rails', '~> 3.0'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
 end
 
 group :development do

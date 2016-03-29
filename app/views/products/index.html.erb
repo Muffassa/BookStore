@@ -12,6 +12,7 @@
     </td>
     <td>Price</td>
     <td>IMG URL</td>
+    <td>Category</td>
     </thead>
 <% for product in @products %>
 <tbody>
@@ -27,6 +28,9 @@
   </td>
   <td>
     <div class="item"><%= image_tag "#{product.img_url}" %></div>
+  </td>
+  <td>
+    <div class="item"><%= product.category.name %></div>
   </td>
   <td>
     <%= link_to "Edit", edit_product_path(product.id) %>

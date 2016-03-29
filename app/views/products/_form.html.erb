@@ -17,6 +17,10 @@
     <%= f.label :img_url %>
     <%= f.text_field :img_url %>
   </p>
+  <p>
+    <%= f.label :category %>
+    <%= f.select :category_id, Category.all.collect { |c| [ c.name, c.id ] } %>
+  </p>
   <div class="action">
    <%= yield :action_button %>
   </div>

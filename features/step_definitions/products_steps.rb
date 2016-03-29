@@ -43,7 +43,8 @@ Given(/^I have$/) do |table|
                     :title => row[:title],
                     :description => row[:description],
                     :price => row[:price],
-                    :img_url => row[:img_url])
+                    :img_url => row[:img_url],
+                    :category_id => row[:category_id])
   end# Write code here that turns the phrase above into concrete actions
 end
 
@@ -80,4 +81,50 @@ end
 
 Then(/^Number of products should equal (\d+)$/) do |numbers|
   expect(Product.all.count) == numbers # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^i go new product page$/) do
+  visit "products/new"# Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I fill in$/) do |table|
+  # table is a Cucumber::Core::Ast::DataTable
+  table.hashes.each do |row|
+    fill_in row[:field], with: row[:data]
+  end # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should see product category with id (\d+)$/) do |id|
+  category = Category.find(id)
+  category_name = category.name
+  expect(page).should have_content category_name # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^fill in category select "([^"]*)"$/) do |category|
+    select  category, :from => 'product_category_id' # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I have categories$/) do |table|
+  table.hashes.each do |row|
+    Category.create(name: row[:name])
+  end
+end
+
+Then(/^I should see product category with name "([^"]*)"$/) do |name|
+  expect(page).to have_content name# Write code here that turns the phrase above into concrete actions
+end
+
+When(/^push button "([^"]*)"$/) do |arg1|
+   click_on "Create"# Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^visit products page$/) do
+  visit  products_path# Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^have categories$/) do |table|
+  # table is a Cucumber::Core::Ast::DataTable
+  table.hashes.each do |row|
+    Category.create(name: row[:name])
+  end # Write code here that turns the phrase above into concrete actions
 end
