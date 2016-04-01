@@ -9,8 +9,8 @@ When(/^i visit root_path$/) do
   visit root_path # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^i click "([^"]*)" of product with name "([^"]*)"$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^i click "([^"]*)" button of product with name "([^"]*)"$/) do |button, product|
+    click_on button# Write code here that turns the phrase above into concrete actions
 end
 
 When(/^i visit to user profile$/) do
