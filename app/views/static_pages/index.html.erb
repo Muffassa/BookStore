@@ -23,6 +23,7 @@
         <%= product.price %>$
       </div>
     </div>
+    <%= button_to 'Add to Cart', line_items_path(product_id: product.id) %>
   </div>
   <% end %>
 </div>
