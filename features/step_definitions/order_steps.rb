@@ -13,11 +13,24 @@ Then(/^i click "([^"]*)" button of product with name "([^"]*)"$/) do |button, pr
     click_on button# Write code here that turns the phrase above into concrete actions
 end
 
-When(/^i visit to user profile$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^i click on "([^"]*)"$/) do |link|
+  click_on link # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^fill in$/) do |table|
+  table.hashes.each do |row|
+    fill_in row[:input_block], with: row[:data]
+  end
+end
+
+Then(/^click on "([^"]*)"$/) do |button|
+  click_on button# Write code here that turns the phrase above into concrete actions
 end
 
 Then(/^i should see$/) do |table|
+  save_and_open_page
   # table is a Cucumber::Core::Ast::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  table.hashes.each do |row|
+    expect(page).to have_content row[:contrent]
+  end # Write code here that turns the phrase above into concrete actions
 end

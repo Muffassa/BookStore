@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-
+  before_action :current_user
   # GET /line_items
   # GET /line_items.json
   def index
@@ -24,15 +24,23 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @line_item = LineItem.new(line_item_params)
+    if @current_user == nil
+      redirect_to root_path, notice: "Для добавления товара авторизируйтесь"
+    else
+      @line_item = LineItem.new
+      @line_item.product = Product.find(params[:product_id])
+      @line_item.order = Order.create
+      @line_item.order.user = @current_user
+
 
     respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
-        format.json { render :show, status: :created, location: @line_item }
-      else
-        format.html { render :new }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        if @line_item.save
+          format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
+          format.json { render :show, status: :created, location: @line_item }
+        else
+          format.html { redirect_to root_path }
+          format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

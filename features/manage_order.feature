@@ -16,9 +16,16 @@ Feature: Order
                         | email             |  password   |
                         | test@email.com    |   test      |
       When i visit root_path
-      Then i click "Add to cart" button of product with name "Ruby"
-      When i visit to user profile
-      Then i should see
+      Then i click "Add to Cart" button of product with name "Ruby"
+      And i should see "Для добавления товара авторизируйтесь"
+      Then i click on "Вход"
+      And fill in
+                  | input_block | data            |
+                  | email       | test@email.com  |
+                  | password    | test            |
+      And click on "Войти"
+      Then i click on "Личный кабинет"
+      And i should see
                         | content   |
                         | "Ruby"    |
                         | 12        |

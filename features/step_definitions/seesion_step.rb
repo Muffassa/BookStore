@@ -22,10 +22,6 @@ Then(/^i should see "([^"]*)"$/) do |content|
   expect(page).to have_content content
 end
 
-Then(/^i visit root_path$/) do
-  visit root_path # Write code here that turns the phrase above into concrete actions
-end
-
 Then(/^i should not see "([^"]*)" and "([^"]*)"$/) do |content1, content2|
   expect(page).to has_no_text?  content1
   expect(page).to has_no_text? content2
