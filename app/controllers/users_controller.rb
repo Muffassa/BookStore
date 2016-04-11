@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :current_user
   # GET /users
   # GET /users.json
   def index
@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.order = Order.create
 
     respond_to do |format|
       if @user.save

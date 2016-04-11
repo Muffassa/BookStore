@@ -29,6 +29,7 @@ end
 
 
 Then(/^i click "([^"]*)"$/) do |link|
+  save_and_open_page
   click_on link # Write code here that turns the phrase above into concrete actions
 end
 
