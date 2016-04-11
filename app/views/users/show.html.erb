@@ -11,6 +11,16 @@
 </p>
 
 <h2>Заказ:</h2>
+<table>
+  <th>Название продукта</th>
+  <th>Стоимость</th>
+  <% @user.order.line_items.each do |item| %>
+  <tr>
+    <td><%= item.product.title %></td>
+    <td><%= item.product.price %></td>
+  </tr>
+  <% end %>
+</table>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

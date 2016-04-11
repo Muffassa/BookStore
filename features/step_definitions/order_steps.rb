@@ -34,3 +34,7 @@ Then(/^i should see$/) do |table|
     expect(page).to have_content row[:contrent]
   end # Write code here that turns the phrase above into concrete actions
 end
+
+Then(/^i should be redirected to user panel$/) do
+    assert_response :redirect  # Write code here that turns the phrase above into concrete actions
+end

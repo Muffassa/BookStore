@@ -27,15 +27,22 @@ class LineItemsController < ApplicationController
     if @current_user == nil
       redirect_to root_path, notice: "Для добавления товара авторизируйтесь"
     else
+
+      order = Order.find_by user_id: @current_user.id
+
+      if order == nil
+
+            order = Order.create(user_id: @current_user.id)
+      end
+
       @line_item = LineItem.new
       @line_item.product = Product.find(params[:product_id])
-      @line_item.order = Order.create
-      @line_item.order.user = @current_user
+      @line_item.order = order
 
 
     respond_to do |format|
         if @line_item.save
-          format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
+          format.html { redirect_to @current_user, notice: 'Line item was successfully created.' }
           format.json { render :show, status: :created, location: @line_item }
         else
           format.html { redirect_to root_path }
