@@ -25,10 +25,12 @@
   <% end %>
 </table>
 <strong>Стоимость всего заказа: <%= total_price %></strong><br>
-<%= @user.order.status %>
-<%if @user.order.status == "Не подтвержден" %>
-    <%= link_to "Подтвердить", order_path(:order => {status: "Подтвержденн"}), method: :put %>
+<div class="status"><strong>Статус:</strong> <%= @user.order.status %></div>
+<%if @user.order.status == "Не подтвержденн" %>
+    <div class="button success"> <%= link_to "Подтвердить", order_path(:order => {status: "Подтвержденн"}, id: @user.order.id), method: :put %> </div>
+<%else %>
+    <div class="button alert">  <%= link_to "Отменить", order_path(:order => {status: "Не подтвержденн"}, id: @user.order.id), method: :put %></div>
 <%end  %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="links"> <%= link_to 'Edit', edit_user_path(@user) %>|
+  <%= link_to 'Back', users_path %> </div>

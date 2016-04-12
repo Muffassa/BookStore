@@ -1,6 +1,5 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-  before_action :current_user
   # GET /line_items
   # GET /line_items.json
   def index
@@ -28,17 +27,12 @@ class LineItemsController < ApplicationController
       redirect_to root_path, notice: "Для добавления товара авторизируйтесь"
     else
 
-      order = Order.find_by user_id: @current_user.id
 
-      if order == nil
-
-            order = Order.create(user_id: @current_user.id)
-      end
 
       @line_item = LineItem.new
       @line_item.product = Product.find(params[:product_id])
 
-      @line_item.order = order
+      @line_item.order = @current_user.order
       @line_item.order.status= "Не подтвержден"
       @line_item.order.save
 
