@@ -25,9 +25,9 @@
   <% end %>
 </table>
 <strong>Стоимость всего заказа: <%= total_price %></strong><br>
-
+<%= @user.order.status %>
 <%if @user.order.status == "Не подтвержден" %>
-    <%= button_to "Подтвердить", @user.order() , method: :put  %>
+    <%= link_to "Подтвердить", order_path(:order => {status: "Подтвержденн"}), method: :put %>
 <%end  %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
