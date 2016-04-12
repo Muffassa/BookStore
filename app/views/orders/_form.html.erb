@@ -17,7 +17,12 @@
   </div>
   <div class="field">
     <%= f.label :track %><br>
-    <%= f.text_field :track %>
+    <%= f.text_field :track_number %>
+  </div>
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status, [["Подтвержденн"], ["Не подтвержденн"], ["Отправлен"]]  %>
+
   </div>
   <div class="actions">
     <%= f.submit %>

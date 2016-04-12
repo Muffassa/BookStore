@@ -1,4 +1,4 @@
-
+<%total_price = 0 %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -19,11 +19,16 @@
   <tr>
     <td><%= item.product.title %></td>
     <td><%= item.product.price %></td>
+    <% total_price += item.product.price %>
     <td><%= link_to "Удалить", item, method: :delete , data: { confirm: 'Are you sure?' }%></td>
   </tr>
   <% end %>
 </table>
+<strong>Стоимость всего заказа: <%= total_price %></strong><br>
 
+<%if @user.order.status == "Не подтвержден" %>
+    <%= button_to "Подтвердить", @user.order() , method: :put  %>
+<%end  %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

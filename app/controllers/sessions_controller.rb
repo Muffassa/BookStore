@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
       current_user
       redirect_to root_path, :notice => "Успешный вход"
     else
-      flash.now.alert = "Пользователя с веденными паролем и email не существует"
-      render "new"
+      redirect_to new_user_path, notice: "Пользователь с таким паролем не существует"
     end
   end
 

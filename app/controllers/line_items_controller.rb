@@ -37,8 +37,10 @@ class LineItemsController < ApplicationController
 
       @line_item = LineItem.new
       @line_item.product = Product.find(params[:product_id])
-      @line_item.order = order
 
+      @line_item.order = order
+      @line_item.order.status= "Не подтвержден"
+      @line_item.order.save
 
     respond_to do |format|
         if @line_item.save

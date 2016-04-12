@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails book-store: development" uuid="9a3aacb2-8048-40ba-90c3-4367f4319502">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails book-store: test" uuid="fc460359-c9f6-452d-ad8b-6e70824282b8">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails book-store: cucumber" uuid="3dca24f2-70b7-42d8-bb63-154aaea27fd4">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
