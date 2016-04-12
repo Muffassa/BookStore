@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Product</th>
+      <th>Owner</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +14,8 @@
   <tbody>
     <% @line_items.each do |line_item| %>
       <tr>
-        <td><%= line_item.product %></td>
+        <td><%= link_to line_item.product.title, line_item.product %></td>
+        <td><%= link_to line_item.order.user.email, line_item.order.user %></td>
         <td><%= link_to 'Show', line_item %></td>
         <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
         <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
