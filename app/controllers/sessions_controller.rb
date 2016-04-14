@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       current_user
       redirect_to root_path, :notice => "Успешный вход"
     else
-      redirect_to new_user_path, notice: "Неверно введен email или пароль"
+      redirect_to login_path, notice: "Неверно введен email или пароль"
     end
   end
 
