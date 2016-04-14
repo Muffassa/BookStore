@@ -1,0 +1,18 @@
+<div class="large-6 columns">
+  <a href="#" class="th radius">
+    <%= image_tag @product.img_url %>
+  </a>
+</div>
+<div class="large-6 columns">
+  <div class="title">
+    <h2><%= @product.title %></h2>
+  </div>
+  <div class="description">
+    <p><%= @product.description %>  </p>
+  </div>
+  <div class="price">
+    <p><%= @product.price %></p>
+  </div>
+  <%= link_to "Купить", line_items_path(product_id: @product), class: "button success", method: :post %>
+</div>
+

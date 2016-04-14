@@ -11644,7 +11644,7 @@ var Foundation = {
 
     this._uuids.push(plugin.uuid);
 
-    return;
+
   },
   /**
    * @function
@@ -11667,7 +11667,7 @@ var Foundation = {
     for(var prop in plugin){
       plugin[prop] = null;//clean up script to prep for garbage collection.
     }
-    return;
+
   },
 
   /**
@@ -11767,7 +11767,7 @@ var Foundation = {
         }catch(er){
           console.error(er);
         }finally{
-          return;
+
         }
       });
     });
@@ -12512,7 +12512,7 @@ function hyphenate(str) {
     if($target.parent().hasClass('is-active')){
       if(this.options.allowAllClosed || $target.parent().siblings().hasClass('is-active')){
         this.up($target);
-      }else{ return; }
+      }else{  }
     }else{
       this.down($target);
     }
@@ -12743,7 +12743,7 @@ function hyphenate(str) {
             $nextElement = $element.parents('li').first().next('li');
           }
 
-          return;
+
         }
       });
       Foundation.Keyboard.handleKey(e, 'AccordionMenu', {
@@ -13023,7 +13023,7 @@ function hyphenate(str) {
         if ($(this).is($element)) {
           $prevElement = $elements.eq(Math.max(0, i-1));
           $nextElement = $elements.eq(Math.min(i+1, $elements.length-1));
-          return;
+
         }
       });
       Foundation.Keyboard.handleKey(e, 'Drilldown', {
@@ -13182,7 +13182,7 @@ function hyphenate(str) {
       var $link = $(this);
       if($link.data('savedHref')){
         $link.attr('href', $link.data('savedHref')).removeData('savedHref');
-      }else{ return; }
+      }else{  }
     });
     Foundation.unregisterPlugin(this);
   };
@@ -13730,7 +13730,7 @@ function hyphenate(str) {
 
         if(hasSub){
           if(hasClicked){
-            if(!_this.options.closeOnClick || (!_this.options.clickOpen && !hasTouch) || (_this.options.forceFollow && hasTouch)){ return; }
+            if(!_this.options.closeOnClick || (!_this.options.clickOpen && !hasTouch) || (_this.options.forceFollow && hasTouch)){  }
             else{
               e.stopImmediatePropagation();
               e.preventDefault();
@@ -13742,7 +13742,7 @@ function hyphenate(str) {
             _this._show($elem.children('.is-dropdown-submenu'));
             $elem.add($elem.parentsUntil(_this.$element, '.' + parClass)).attr('data-is-click', true);
           }
-        }else{ return; }
+        }else{  }
       });
     }
 
@@ -13782,7 +13782,7 @@ function hyphenate(str) {
         if ($(this).is($element)) {
           $prevElement = $elements.eq(i-1);
           $nextElement = $elements.eq(i+1);
-          return;
+
         }
       });
 
@@ -13795,7 +13795,7 @@ function hyphenate(str) {
         if($sub.length){
           _this._show($sub);
           $element.find('li > a:first').focus();
-        }else{ return; }
+        }else{  }
       }, closeSub = function() {
         //if ($element.is(':first-child')) {
         var close = $element.parent('ul').parent('li');
@@ -14094,7 +14094,7 @@ function hyphenate(str) {
    * @private
    */
   Equalizer.prototype._killswitch = function(){
-    return;
+
   };
   /**
    * Calls necessary functions to update Equalizer upon DOM change
@@ -14896,7 +14896,7 @@ OffCanvas.prototype.open = function(event, trigger) {
     $('[data-off-canvas-wrapper]').addClass('is-off-canvas-open is-open-'+ _this.options.position);
 
     _this.$element
-      .addClass('is-open')
+      .addClass('is-open');
 
     // if(_this.options.isSticky){
     //   _this._stick();
@@ -16898,7 +16898,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
     }
 
     this.points = breaks;
-    return;
+
   };
 
   /**
@@ -17357,7 +17357,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
             $prevElement = $elements.eq(Math.max(0, i-1));
             $nextElement = $elements.eq(Math.min(i+1, $elements.length-1));
           }
-          return;
+
         }
       });
 
@@ -18677,7 +18677,7 @@ Foundation.Motion = Motion;
           $item.addClass('is-submenu-item ' + subItemClass);
         }
       });
-      return;
+
     },
     Burn: function(menu, type){
       var items = menu.find('li').removeAttr('tabindex'),
@@ -18727,7 +18727,7 @@ Foundation.Motion = Motion;
     };
 
     this.start = function(){
-      this.isPaused = false
+      this.isPaused = false;
       // if(!elem.data('paused')){ return false; }//maybe implement this sanity check if used for other things.
       clearTimeout(timer);
       remain = remain <= 0 ? duration : remain;
@@ -19142,7 +19142,6 @@ Foundation.Motion = Motion;
 	});
 })( jQuery, this );
 */
-;
 !function(Foundation, $) {
   'use strict';
   // Elements with [data-open] will reveal a plugin that supports it when clicked.
@@ -19348,7 +19347,7 @@ Foundation.Motion = Motion;
         return false;
         //nothing
       }
-    }
+    };
 
     if(nodes.length){
       //for each element that needs to listen for resizing, scrolling, (or coming soon mutation) add a single observer

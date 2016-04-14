@@ -6,7 +6,7 @@
   <% for product in @products %>
   <div class="product">
     <div class="product_item">
-      <%=image_tag product.img_url %>
+      <%=link_to image_tag(product.img_url) , product %>
       <div class="product_actions">
         <div class="edit"><%=link_to (image_tag "draw.svg"), edit_product_path(product.id) %></div>
         <div class="delete"><%=link_to (image_tag "delete.svg"),product, method: :delete,
@@ -23,8 +23,8 @@
       <div class="product_price">
         <%= product.price %>$
       </div>
+      <%= link_to "Купить", line_items_path(product_id: @product), class: "button success", method: :post %>
     </div>
-    <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
   </div>
   <% end %>
 </div>

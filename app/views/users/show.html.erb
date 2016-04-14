@@ -17,7 +17,7 @@
   <th>Стоимость</th>
   <% @user.order.line_items.each do |item| %>
   <tr>
-    <td><%= item.product.title %></td>
+    <td><%= link_to item.product.title, item.product %></td>
     <td><%= item.product.price %></td>
     <% total_price += item.product.price %>
     <td><%= link_to "Удалить", item, method: :delete , data: { confirm: 'Are you sure?' }%></td>
@@ -26,10 +26,10 @@
 </table>
 <strong>Стоимость всего заказа: <%= total_price %></strong><br>
 <div class="status"><strong>Статус:</strong> <%= @user.order.status %></div>
-<%if @user.order.status == "Не подтвержденн" %>
-    <div class="button success"> <%= link_to "Подтвердить", order_path(:order => {status: "Подтвержденн"}, id: @user.order.id), method: :put %> </div>
+<%if @user.order.status == "Не подтвержден" %>
+    <div class="button success"> <%= link_to "Подтвердить", order_path(:order => {status: "Подтвержден"}, id: @user.order.id), method: :put %> </div>
 <%else %>
-    <div class="button alert">  <%= link_to "Отменить", order_path(:order => {status: "Не подтвержденн"}, id: @user.order.id), method: :put %></div>
+    <div class="button alert">  <%= link_to "Отменить", order_path(:order => {status: "Не подтвержден"}, id: @user.order.id), method: :put %></div>
 <%end  %>
 
 <div class="links"> <%= link_to 'Edit', edit_user_path(@user) %>|
