@@ -13,3 +13,4 @@ Feature: Manage Products
                     | user_password    | test  |
       And click "Create User" button
       Then I should have 1 user
+

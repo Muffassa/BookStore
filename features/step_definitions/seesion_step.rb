@@ -41,3 +41,32 @@ end
 Given(/^have not authenticate users$/) do
   @current_user = nil # Write code here that turns the phrase above into concrete actions
 end
+
+
+Given(/^user at main page$/) do
+  visit root_path
+end
+
+Given(/^have user$/) do |table|
+  # table is a table.hashes.keys # => [:email, :password]
+  table.hashes.each do |row|
+    User.create(email: row[:email], password: row[:password])
+  end
+end
+
+When(/^he click "([^"]*)"$/) do |link|
+  click_on link
+end
+
+And(/^login in the site with$/) do |table|
+  # table is a table.hashes.keys # => [:email, :password]
+  table.hashes.each do |row|
+    fill_in "email", with: row[:email]
+    fill_in "password", with: row[:password]
+  end
+  click_on "Войти"
+end
+
+Then(/^he should see message "([^"]*)"$/) do |message|
+  expect(page).to have_content message
+end

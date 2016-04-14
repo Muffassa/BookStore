@@ -20,3 +20,18 @@ Feature: Manage Products
       But i should see "Личный кабинет"
       Then i click "Выход"
       And i should see "Вход" and "Регистрация"
+
+
+    Scenario: Login with incorrect password
+      Given user at main page
+      Given have user
+                        | email               | password  |
+                        | test@email.com     | test      |
+      When he click "Вход"
+      And login in the site with
+        | email               | password  |
+        | test@email.com     | est      |
+      Then he should see message "Неверно введен email или пароль"
+
+
+
