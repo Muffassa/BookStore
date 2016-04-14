@@ -69,6 +69,6 @@ class AdministratorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def administrator_params
-      params.fetch(:administrator, {})
+      params.require(:administrator).permit(:user_id, :ability)
     end
 end

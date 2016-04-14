@@ -10,7 +10,13 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="input">
+    <%= f.label :User %>
+    <%= f.select :user_id, User.all.collect { |c| [ c.email, c.id ] } %>
+  </div>
+  <div class="input">
+    <%= f.select :ability, [["Модератор"], ["Администратор"], ["Пользователь"]] %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
