@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :administrators
   resources :line_items
   resources :orders
   resources :discount_items
