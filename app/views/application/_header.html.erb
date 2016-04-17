@@ -7,14 +7,14 @@
   <div class="top-bar-right">
     <ul class="menu">
 
-      <% if @current_user == nil %>
+      <% if @current_user.id == nil %>
         <li>
           <%= link_to "Регистрация", signup_path %>
         </li>
         <li>
           <a href="login">Вход</a>
         </li>
-      <% else %>
+      <% elsif @current_user.id != nil %>
           <% if @current_user.admin? %>
               <li>
                 <%= link_to (image_tag "circle.svg"), new_product_path %>
